@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Calculator</title>
+  <link rel="stylesheet" href="page3.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">TravelExplore</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="budget.html" class="active">Budget</a></li>
+        <li><a href="team.html">Contact</a></li>
+        <li><a href="contact.html">Team</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="budget-section">
+    <h1>Plan Your Budget</h1>
+    <form id="budgetForm">
+      <label for="destination">Choose Destination:</label>
+      <select id="destination" required>
+        <option value="">--Select--</option>
+        <option value="Jaipur">Jaipur</option>
+        <option value="Goa">Goa</option>
+        <option value="Manali">Manali</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Leh">Leh</option>
+        <option value="Varanasi">Varanasi</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Andaman">Andaman</option>
+        <option value="Darjeeling">Darjeeling</option>
+        <option value="Coorg">Coorg</option>
+        <option value="Udaipur">Udaipur</option>
+        <option value="Rishikesh">Rishikesh</option>
+        <option value="Gujrat">Gujrat</option>
+        <option value="Pondicherry">Pondicherry</option>
+        <option value="Shimla">Shimla</option>
+        <option value="Lavasa">Lavasa</option>
+      </select>
+
+      <label for="days">Number of Days:</label>
+      <input type="number" id="days" min="1" required>
+
+      <label for="stay">Select Stay Type:</label>
+      <select id="stay" required>
+        <option value="cheap">Cheap</option>
+        <option value="standard">Standard</option>
+        <option value="luxury">Luxury</option>
+      </select>
+
+      <button type="submit">Calculate Budget</button>
+    </form>
+
+    <div class="result" id="result"></div>
+  </section>
+
+  <footer>
+    &copy; 2025 WanderWorld. All rights reserved.
+  </footer>
+
+  <script>
+    const costData = {
+      Jaipur: { cheap: 1000, standard: 2000, luxury: 4000 },
+      Goa: { cheap: 1200, standard: 2500, luxury: 5000 },
+      Manali: { cheap: 1100, standard: 2200, luxury: 4500 },
+      Kerala: { cheap: 1300, standard: 2700, luxury: 5200 },
+      Leh: { cheap: 1400, standard: 2800, luxury: 5500 },
+      Varanasi: { cheap: 900, standard: 1900, luxury: 4200 },
+      Mumbai: { cheap: 1200, standard: 2600, luxury: 5300 },
+      Andaman: { cheap: 1500, standard: 3000, luxury: 6000 },
+      Darjeeling: { cheap: 1000, standard: 2100, luxury: 4700 },
+      Coorg: { cheap: 1100, standard: 2300, luxury: 4800 },
+      Udaipur: { cheap: 1000, standard: 2200, luxury: 4500 },
+      Rishikesh: { cheap: 800, standard: 1700, luxury: 3900 },
+      Gujrat: { cheap: 1000, standard: 2000, luxury: 4400 },
+      Pondicherry: { cheap: 1100, standard: 2300, luxury: 4600 },
+      Shimla: { cheap: 1000, standard: 2100, luxury: 4700 },
+      Lavasa: { cheap: 1200, standard: 2400, luxury: 4900 },
+    };
+
+    document.getElementById("budgetForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const destination = document.getElementById("destination").value;
+      const days = parseInt(document.getElementById("days").value);
+      const stay = document.getElementById("stay").value;
+
+      if (destination && days && stay) {
+        const dailyCost = costData[destination][stay];
+        const total = dailyCost * days;
+        document.getElementById("result").innerText = `Estimated budget for ${days} days in ${destination} with ${stay} stay: ₹${total}`;
+      } else {
+        document.getElementById("result").innerText = "Please fill all fields correctly.";
+      }
+    });
+  </script>
+</body>
+</html>
