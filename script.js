@@ -6,19 +6,36 @@ cursorOutline.className = 'cursor-outline';
 document.body.appendChild(cursorDot);
 document.body.appendChild(cursorOutline);
 
+let mouseX = 0;
+let mouseY = 0;
+let outlineX = 0;
+let outlineY = 0;
+
 window.addEventListener('mousemove', (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
-
-    // Smooth follow for outline
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 500, fill: "forwards" });
+    // Dot follows immediately
+    cursorDot.style.left = `${mouseX}px`;
+    cursorDot.style.top = `${mouseY}px`;
 });
+
+function animateCursor() {
+    // Linear interpolation for smooth trailing effect
+    // Speed factor: 0.1 (lower is smoother/slower, higher is faster)
+    let distX = mouseX - outlineX;
+    let distY = mouseY - outlineY;
+
+    outlineX += distX * 0.15;
+    outlineY += distY * 0.15;
+
+    cursorOutline.style.left = `${outlineX}px`;
+    cursorOutline.style.top = `${outlineY}px`;
+
+    requestAnimationFrame(animateCursor);
+}
+
+animateCursor();
 
 // Header Scroll Effect
 const header = document.querySelector('header');
@@ -38,10 +55,10 @@ cards.forEach(card => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        
+
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        
+
         const rotateX = ((y - centerY) / centerY) * -10; // Max rotation deg
         const rotateY = ((x - centerX) / centerX) * 10;
 
@@ -103,7 +120,7 @@ function initParticles() {
 
 function animateParticles() {
     ctx.clearRect(0, 0, width, height);
-    
+
     particles.forEach(p => {
         p.update();
         p.draw();
@@ -118,7 +135,7 @@ function animateParticles() {
 
             if (dist < 100) {
                 ctx.beginPath();
-                ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 - dist/1000})`;
+                ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 - dist / 1000})`;
                 ctx.lineWidth = 0.5;
                 ctx.moveTo(a.x, a.y);
                 ctx.lineTo(b.x, b.y);
