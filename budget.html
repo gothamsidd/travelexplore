@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Budget Calculator</title>
-  <link rel="stylesheet" href="page3.css">
+  <title>Budget Calculator - TravelExplore</title>
+  <link rel="stylesheet" href="page1.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700;800&display=swap"
+    rel="stylesheet" />
 </head>
+
 <body>
+  <canvas id="bg-canvas"></canvas>
+
   <header>
     <nav>
       <div class="logo">TravelExplore</div>
@@ -14,13 +20,13 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="destinations.html">Destinations</a></li>
         <li><a href="budget.html" class="active">Budget</a></li>
-        <li><a href="team.html">Contact</a></li>
-        <li><a href="contact.html">Team</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="budget-section">
+  <section class="destinations"> <!-- Reusing destinations class for spacing -->
     <h1>Plan Your Budget</h1>
     <form id="budgetForm">
       <label for="destination">Choose Destination:</label>
@@ -57,13 +63,14 @@
       <button type="submit">Calculate Budget</button>
     </form>
 
-    <div class="result" id="result"></div>
+    <div class="result" id="result" style="max-width: 600px; margin: 2rem auto;"></div>
   </section>
 
   <footer>
-    &copy; 2025 WanderWorld. All rights reserved.
+    <p>&copy; 2025 TravelExplore. Designed for the Future.</p>
   </footer>
 
+  <script src="script.js"></script>
   <script>
     const costData = {
       Jaipur: { cheap: 1000, standard: 2000, luxury: 4000 },
@@ -84,7 +91,7 @@
       Lavasa: { cheap: 1200, standard: 2400, luxury: 4900 },
     };
 
-    document.getElementById("budgetForm").addEventListener("submit", function(e) {
+    document.getElementById("budgetForm").addEventListener("submit", function (e) {
       e.preventDefault();
       const destination = document.getElementById("destination").value;
       const days = parseInt(document.getElementById("days").value);
@@ -100,4 +107,5 @@
     });
   </script>
 </body>
+
 </html>

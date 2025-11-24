@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TravelExplore - Home</title>
+  <title>TravelExplore - Future of Travel</title>
   <link rel="stylesheet" href="page1.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <canvas id="bg-canvas"></canvas>
+
   <header>
     <nav>
       <div class="logo">TravelExplore</div>
@@ -21,47 +23,96 @@
     </nav>
   </header>
 
+  <section class="hero">
+    <div class="hero-content">
+      <h1>EXPLORE THE UNKNOWN</h1>
+      <p>Experience the world like never before. curated journeys for the modern traveler.</p>
+      <a href="destinations.html" class="btn-glow">Start Journey</a>
+    </div>
+  </section>
+
   <section class="preview-destinations">
-    <h2>Popular Destinations</h2>
+    <h2 class="section-title">Popular Destinations</h2>
     <div class="destination-grid">
       <a href="https://en.wikipedia.org/wiki/Jaipur" target="_blank" rel="noopener noreferrer" class="dest-card">
-        <img src="images/jaipur.jpg" alt="Jaipur" />
-        <h3>Jaipur</h3>
+        <div class="img-container">
+            <img src="images/jaipur.jpg" alt="Jaipur" />
+        </div>
+        <div class="card-content">
+            <h3>Jaipur</h3>
+            <p>The Pink City</p>
+        </div>
       </a>
       <a href="https://en.wikipedia.org/wiki/Goa" target="_blank" rel="noopener noreferrer" class="dest-card">
-        <img src="images/goa.jpg" alt="Goa" />
-        <h3>Goa</h3>
+        <div class="img-container">
+            <img src="images/goa.jpg" alt="Goa" />
+        </div>
+        <div class="card-content">
+            <h3>Goa</h3>
+            <p>Beaches & Nightlife</p>
+        </div>
       </a>
       <a href="https://en.wikipedia.org/wiki/Kerala" target="_blank" rel="noopener noreferrer" class="dest-card">
-        <img src="images/kerala.jpg" alt="Kerala" />
-        <h3>Kerala</h3>
+        <div class="img-container">
+            <img src="images/kerala.jpg" alt="Kerala" />
+        </div>
+        <div class="card-content">
+            <h3>Kerala</h3>
+            <p>God's Own Country</p>
+        </div>
       </a>
       <a href="https://en.wikipedia.org/wiki/Manali,_Himachal_Pradesh" target="_blank" rel="noopener noreferrer" class="dest-card">
-        <img src="images/manali.jpg" alt="Manali" />
-        <h3>Manali</h3>
+        <div class="img-container">
+            <img src="images/manali.jpg" alt="Manali" />
+        </div>
+        <div class="card-content">
+            <h3>Manali</h3>
+            <p>Mountains Calling</p>
+        </div>
       </a>
       <a href="https://en.wikipedia.org/wiki/Udaipur" target="_blank" rel="noopener noreferrer" class="dest-card">
-        <img src="images/udaipur.jpg" alt="Udaipur" />
-        <h3>Udaipur</h3>
+        <div class="img-container">
+            <img src="images/udaipur.jpg" alt="Udaipur" />
+        </div>
+        <div class="card-content">
+            <h3>Udaipur</h3>
+            <p>City of Lakes</p>
+        </div>
       </a>
       <a href="https://en.wikipedia.org/wiki/Varanasi" target="_blank" rel="noopener noreferrer" class="dest-card">
-        <img src="images/varanasi.jpg" alt="Varanasi" />
-        <h3>Varanasi</h3>
+        <div class="img-container">
+            <img src="images/varanasi.jpg" alt="Varanasi" />
+        </div>
+        <div class="card-content">
+            <h3>Varanasi</h3>
+            <p>Spiritual Capital</p>
+        </div>
       </a>
       <a href="https://en.wikipedia.org/wiki/Coorg" target="_blank" rel="noopener noreferrer" class="dest-card">
-        <img src="images/coorg.jpg" alt="Coorg" />
-        <h3>Coorg</h3>
+        <div class="img-container">
+            <img src="images/coorg.jpg" alt="Coorg" />
+        </div>
+        <div class="card-content">
+            <h3>Coorg</h3>
+            <p>Scotland of India</p>
+        </div>
       </a>
       <a href="https://en.wikipedia.org/wiki/Mumbai" target="_blank" rel="noopener noreferrer" class="dest-card">
-        <img src="images/mumbai.jpg" alt="Mumbai" />
-        <h3>Mumbai</h3>
+        <div class="img-container">
+            <img src="images/mumbai.jpg" alt="Mumbai" />
+        </div>
+        <div class="card-content">
+            <h3>Mumbai</h3>
+            <p>City of Dreams</p>
+        </div>
       </a>
     </div>
   </section>
-  
 
   <footer>
-    <p>© 2025 TravelExplore. All rights reserved.</p>
+    <p>© 2025 TravelExplore. Designed for the Future.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
